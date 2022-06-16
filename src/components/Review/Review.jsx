@@ -1,10 +1,13 @@
+//imports
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
 
 function Review() {
+  //use history
   const history = useHistory();
+  //declare selectors
   const feeling = useSelector(
     (store) => store.feelingReducer
   );
@@ -19,12 +22,14 @@ function Review() {
   );
 
   const sendFeedback = () => {
+    //set the feedback object
     const newFeedback = {
       feeling: feeling,
       understanding: understanding,
       support: support,
       comments: comments,
     };
+    //axios post request
     axios
       .post("/feedback", newFeedback)
       .then((response) => {

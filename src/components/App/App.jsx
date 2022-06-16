@@ -1,3 +1,4 @@
+//IMPORTS
 import React from "react";
 import "./App.css";
 import {
@@ -12,6 +13,7 @@ import Understanding from "../Understanding/Understanding.jsx";
 import Success from "../Success/Success.jsx";
 import Review from "../Review/Review.jsx";
 
+//BEGINNING OF APP
 function App() {
   return (
     <div className="App">
@@ -19,6 +21,7 @@ function App() {
         <h1 className="App-title">Feedback!</h1>
         <h4>Don't forget it!</h4>
       </header>
+      {/* ROUTES */}
       <Router>
         <Route path="/" exact>
           <Feeling />

@@ -1,3 +1,4 @@
+//imports
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
@@ -9,6 +10,7 @@ import {
 } from "redux";
 import { Provider } from "react-redux";
 
+//declare reducers
 const commentsReducer = (state = null, action) => {
   if (action.type === "SEND_COMMENT") {
     state = action.payload;
@@ -34,6 +36,7 @@ const understandingReducer = (state = null, action) => {
   return state;
 };
 
+//combine reducers and create store
 const store = createStore(
   combineReducers({
     commentsReducer,
@@ -43,6 +46,7 @@ const store = createStore(
   })
 );
 
+//render app with provider
 ReactDOM.render(
   <Provider store={store}>
     <App />

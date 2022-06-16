@@ -1,9 +1,21 @@
 # Project Name
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+Feedback App
 
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
+What problem did you solve? How did you solve it?
+Allows website owner to easily collect feedback from users about their feelings and level of support. Uses Axios and Postgresql to send this information to a database. Makes use of client-side routing and Redux.
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+Create your database and tables using the provided `data.sql` file. Start the server.
+
+```
+npm install
+npm run server
+```
+
+Now that the server is running, open a new terminal tab with `cmd + t` and start the react client app.
+
+```
+npm run client
+```

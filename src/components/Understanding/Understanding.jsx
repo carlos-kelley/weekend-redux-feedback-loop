@@ -1,24 +1,29 @@
+//import 
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 function Understanding() {
+  //use history and dispatch and state variables
   const [understanding, setUnderstanding] =
     useState(null);
   const dispatch = useDispatch();
   const history = useHistory();
 
   const understandingChange = () => {
+    //set understanding state variable
     setUnderstanding(event.target.value);
   };
 
   const sendUnderstanding = () => {
+    //send understanding dispatch
     dispatch({
       type: "SEND_UNDERSTANDING",
       payload: understanding,
     });
     console.log(understanding);
+    //if entry is not null and is 1-5, navigate to support page, otherwise alert
     if (
       understanding !== null &&
       understanding > 0 &&

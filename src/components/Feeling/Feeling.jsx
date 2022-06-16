@@ -1,3 +1,4 @@
+//imports
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -5,23 +6,28 @@ import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function Feeling() {
+  //declare state variables
   const [feeling, setFeeling] = useState(null);
+  //use the comment selector
   const comments = useSelector(
     (store) => store.commentsReducer
   );
   const dispatch = useDispatch();
   const history = useHistory();
 
+  //function to handle feeling input
   const feelingChange = () => {
     setFeeling(event.target.value);
   };
 
+  //function to send feeling dispatch
   const sendFeeling = () => {
     dispatch({
       type: "SEND_FEELING",
       payload: feeling,
     });
     console.log(feeling);
+    //if entry is not null and is 1-5, navigate to understanding page, otherwise alert
     if (
       feeling !== null &&
       feeling > 0 &&

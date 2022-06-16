@@ -1,3 +1,15 @@
+const pg = require("pg");
+
+const pool = new pg.Pool({
+  host: "localhost",
+  database: "prime_feedback",
+  port: 5432,
+  max: 12,
+  idleTimeoutMillis: 30000,
+});
+
+module.exports = pool;
+
 // /**
 // * You'll need to use environment variables in order to deploy your
 // * pg-pool configuration to Heroku.
@@ -39,15 +51,3 @@
 // }
 
 // module.exports = new pg.Pool(config);
-
-const pg = require("pg");
-
-const pool = new pg.Pool({
-  host: "localhost",
-  database: "prime_feedback",
-  port: 5432,
-  max: 12,
-  idleTimeoutMillis: 30000,
-});
-
-module.exports = pool;

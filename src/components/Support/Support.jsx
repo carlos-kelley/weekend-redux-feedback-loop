@@ -1,23 +1,28 @@
+//import
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 function Support() {
+  //use history and dispatch and state variables
   const [support, setSupport] = useState(null);
   const dispatch = useDispatch();
   const history = useHistory();
 
+  //function to handle support input
   const supportChange = () => {
     setSupport(event.target.value);
   };
 
   const sendSupport = () => {
+    //send support dispatch
     dispatch({
       type: "SEND_SUPPORT",
       payload: support,
     });
     console.log(support);
+    //if entry is not null and is 1-5, navigate to review page, otherwise alert
     if (
       support !== null &&
       support > 0 &&
