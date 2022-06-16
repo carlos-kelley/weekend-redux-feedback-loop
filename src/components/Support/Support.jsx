@@ -17,7 +17,18 @@ function Support() {
       type: "SEND_SUPPORT",
       payload: support,
     });
-    history.push("/comments");
+    console.log(support);
+    if (
+      support !== null &&
+      support > 0 &&
+      support < 6
+    ) {
+      history.push("/comments");
+    } else {
+      alert(
+        "Please enter a number between 1 and 5"
+      );
+    }
   };
 
   return (
@@ -26,6 +37,8 @@ function Support() {
       <p>
         <input
           type="number"
+          min="1"
+          max="5"
           placeholder="Rate your support"
           onChange={supportChange}
         ></input>

@@ -18,7 +18,18 @@ function Understanding() {
       type: "SEND_UNDERSTANDING",
       payload: understanding,
     });
-    history.push("/support");
+    console.log(understanding);
+    if (
+      understanding !== null &&
+      understanding > 0 &&
+      understanding < 6
+    ) {
+      history.push("/support");
+    } else {
+      alert(
+        "Please enter a number between 1 and 5"
+      );
+    }
   };
 
   return (
@@ -30,6 +41,8 @@ function Understanding() {
       <p>
         <input
           type="number"
+          min="1"
+          max="5"
           placeholder="Rate your understanding"
           onChange={understandingChange}
         ></input>

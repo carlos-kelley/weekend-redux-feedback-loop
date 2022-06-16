@@ -17,7 +17,18 @@ function Feeling() {
       type: "SEND_FEELING",
       payload: feeling,
     });
-    history.push("/understanding");
+    console.log(feeling);
+    if (
+      feeling !== null &&
+      feeling > 0 &&
+      feeling < 6
+    ) {
+      history.push("/understanding");
+    } else {
+      alert(
+        "Please enter a number between 1 and 5"
+      );
+    }
   };
 
   return (
@@ -26,7 +37,9 @@ function Feeling() {
       <p>
         <input
           type="number"
-          placeholder="Rate your feeling"
+          min="1"
+          max="5"
+          placeholder="Rate your feeling 1-5"
           onChange={feelingChange}
         ></input>
         <button onClick={sendFeeling}>
