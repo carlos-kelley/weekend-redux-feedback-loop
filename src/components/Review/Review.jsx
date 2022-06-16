@@ -20,14 +20,14 @@ function Review() {
     (store) => store.commentsReducer
   );
 
-    const sendFeedback = () => {
-        console.log('in sendFeedback');
-        console.log({ feeling });
+  const sendFeedback = () => {
+    console.log("in sendFeedback");
+    console.log(feeling);
     const newFeedback = {
-      feeling: { feeling },
-      understanding: { understanding },
-      support: { support },
-      comments: { comments },
+      feeling: feeling,
+      understanding: understanding,
+      support: support,
+      comments: comments,
     };
     console.log(newFeedback);
     axios
