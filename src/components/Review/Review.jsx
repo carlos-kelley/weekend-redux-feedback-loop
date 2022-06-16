@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Axios from "axios";
 
 function Review() {
   const history = useHistory();
@@ -20,6 +21,22 @@ function Review() {
   );
 
   const sendFeedback = () => {
+    const newFeedback = {
+      feeling: { feeling },
+      understanding: { understanding },
+      support: { support },
+      comments: { comments },
+    };
+    console.log(newFeedback);
+    Axios.post("/", newFeedback)
+      .then((response) => {
+        console.log(response.data);
+        alert("added feedback");
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("error adding feedback");
+      });
     history.push("/success");
   };
   //   const [feeling, setFeeling] = useState(0);
