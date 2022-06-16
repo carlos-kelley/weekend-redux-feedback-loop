@@ -5,13 +5,18 @@ const pool = require("../modules/pool");
 
 router.get('/', (req, res) => {
   console.log('/feedback GET');
-  res.send('meow');
-}
-);
+  const queryString = `SELECT * FROM feedback`;
+  pool.query(queryString).then((results) => {
+    res.send(results.rows);
+  }).catch((error) => {
+    res.sendStatus(500);
+  });
+});
 
 router.post("/", (req, res) => {
   console.log('/feedback POST:', req.body);
-  let queryString = `INSERT INTO feedback (feeling, understanding, support, comments) VALUES ($1, $2, $3, $4);`;
+  res.send('woof');
+  let queryString = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments") VALUES ($1, $2, $3, $4);`;
   let values = [
     req.body.feeling,
       req.body.understanding,

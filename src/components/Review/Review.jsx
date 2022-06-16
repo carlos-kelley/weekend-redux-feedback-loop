@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Axios from "axios";
+import axios from "axios";
 
 function Review() {
   const history = useHistory();
@@ -20,7 +20,9 @@ function Review() {
     (store) => store.commentsReducer
   );
 
-  const sendFeedback = () => {
+    const sendFeedback = () => {
+        console.log('in sendFeedback');
+        console.log({ feeling });
     const newFeedback = {
       feeling: { feeling },
       understanding: { understanding },
@@ -28,7 +30,8 @@ function Review() {
       comments: { comments },
     };
     console.log(newFeedback);
-    Axios.post("/", newFeedback)
+    axios
+      .post("/feedback", newFeedback)
       .then((response) => {
         console.log(response.data);
         alert("added feedback");
