@@ -9,6 +9,7 @@ import Comments from "../Comments/Comments.jsx";
 import Feeling from "../Feeling/Feeling.jsx";
 import Support from "../Support/Support.jsx";
 import Understanding from "../Understanding/Understanding.jsx";
+import Review from "../Review/Review.jsx";
 import { useSelector } from "react-redux";
 
 function App() {
@@ -33,6 +34,9 @@ function App() {
         </Route>
         <Route path="/comments">
           <Comments />
+        </Route>
+        <Route path="/review">
+          <Review />
         </Route>
       </Router>
     </div>
