@@ -43,7 +43,6 @@ function Feeling() {
 
   return (
     <div>
-      <p>{comments}</p>
       <h1>How are you feeling today?</h1>
       <p>
         <input
