@@ -1,24 +1,22 @@
-const { query } = require("express");
 const express = require("express");
 const router = express.Router();
 const pool = require("../modules/pool");
 
-router.get("/", (req, res) => {
-  console.log("/feedback GET");
-  const queryString = `SELECT * FROM feedback`;
-  pool
-    .query(queryString)
-    .then((results) => {
-      res.send(results.rows);
-    })
-    .catch((error) => {
-      res.sendStatus(500);
-    });
-});
+// router.get("/", (req, res) => {
+//   console.log("/feedback GET");
+//   const queryString = `SELECT * FROM feedback`;
+//   pool
+//     .query(queryString)
+//     .then((results) => {
+//       res.send(results.rows);
+//     })
+//     .catch((error) => {
+//       res.sendStatus(500);
+//     });
+// });
 
 router.post("/", (req, res) => {
   console.log("/feedback POST:", req.body);
-  res.send("woof");
   const queryString = `INSERT INTO feedback (feeling, understanding, support, comments) VALUES ($1, $2, $3, $4)`;
   const values = [
     req.body.feeling,
@@ -26,7 +24,6 @@ router.post("/", (req, res) => {
     req.body.support,
     req.body.comments,
   ];
-  console.log("req bodies:", req.body.feeling, req.body.understanding, req.body.support, req.body.comments);
   pool
     .query(queryString, values)
     .then((results) => {

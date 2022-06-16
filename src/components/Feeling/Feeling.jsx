@@ -2,9 +2,13 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Feeling() {
   const [feeling, setFeeling] = useState(null);
+  const comments = useSelector(
+    (store) => store.commentsReducer
+  );
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -33,6 +37,7 @@ function Feeling() {
 
   return (
     <div>
+      <p>{comments}</p>
       <h1>How are you feeling today?</h1>
       <p>
         <input

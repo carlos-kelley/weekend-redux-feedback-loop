@@ -11,7 +11,6 @@ import Support from "../Support/Support.jsx";
 import Understanding from "../Understanding/Understanding.jsx";
 import Success from "../Success/Success.jsx";
 import Review from "../Review/Review.jsx";
-import { useSelector } from "react-redux";
 
 function App() {
   return (

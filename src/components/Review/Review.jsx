@@ -1,6 +1,4 @@
 import React from "react";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
@@ -21,53 +19,23 @@ function Review() {
   );
 
   const sendFeedback = () => {
-    console.log("in sendFeedback");
-    console.log(feeling);
     const newFeedback = {
       feeling: feeling,
       understanding: understanding,
       support: support,
       comments: comments,
     };
-    console.log(newFeedback);
     axios
       .post("/feedback", newFeedback)
       .then((response) => {
         console.log(response.data);
-        alert("added feedback");
+        history.push("/success");
       })
       .catch((err) => {
         console.log(err);
         alert("error adding feedback");
       });
-    history.push("/success");
   };
-  //   const [feeling, setFeeling] = useState(0);
-  //   const dispatch = useDispatch();
-  //   const history = useHistory();
-
-  //   const feelingChange = () => {
-  //     setFeeling(event.target.value);
-  //   };
-
-  //   const sendFeeling = () => {
-  //     dispatch({
-  //       type: "SEND_FEELING",
-  //       payload: feeling,
-  //     });
-  //     console.log(feeling);
-  //     if (
-  //       feeling !== null &&
-  //       feeling > 0 &&
-  //       feeling < 6
-  //     ) {
-  //       history.push("/understanding");
-  //     } else {
-  //       alert(
-  //         "Please enter a number between 1 and 5"
-  //       );
-  //     }
-  //   };
 
   return (
     <div>
