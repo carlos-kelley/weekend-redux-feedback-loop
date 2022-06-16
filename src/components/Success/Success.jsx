@@ -2,27 +2,16 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
 
-function Review() {
-  const history = useHistory();
-  const feeling = useSelector(
-    (store) => store.feelingReducer
-  );
-  const understanding = useSelector(
-    (store) => store.understandingReducer
-  );
-  const support = useSelector(
-    (store) => store.supportReducer
-  );
-  const comments = useSelector(
-    (store) => store.commentsReducer
-  );
+function Success() {
 
-  const sendFeedback = () => {
-    history.push("/success");
-  };
-  //   const [feeling, setFeeling] = useState(0);
+    const history = useHistory();
+    const sendHome = () => {
+        history.push("/");
+    };
+    
+
+  //   const [feeling, setFeeling] = useState(null);
   //   const dispatch = useDispatch();
   //   const history = useHistory();
 
@@ -51,15 +40,10 @@ function Review() {
 
   return (
     <div>
-      <h1>Review Your Feedback</h1>
-      <p>Feelings: {feeling}</p>
-      <p>Understanding: {understanding}</p>
-      <p>Support: {support}</p>
-      <p>Comments: {comments}</p>
-      <button onClick={sendFeedback}>
-        Submit
-      </button>
+      <h1>Thanks for your feedback!</h1>
+      <button onClick = {sendHome}>Leave New Feedback</button>
     </div>
   );
 }
-export default Review;
+
+export default Success;
