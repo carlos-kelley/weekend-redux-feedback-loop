@@ -5,7 +5,6 @@ import {
   Route,
   HashRouter as Router,
 } from "react-router-dom";
-import Axios from "axios";
 import Comments from "../Comments/Comments.jsx";
 import Feeling from "../Feeling/Feeling.jsx";
 import Support from "../Support/Support.jsx";
