@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 function Feeling() {
-  const [feeling, setFeeling] = useState(0);
+  const [feeling, setFeeling] = useState(null);
   const dispatch = useDispatch();
   const history = useHistory();
 

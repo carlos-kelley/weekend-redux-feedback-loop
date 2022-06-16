@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 function Comments() {
-  const [comment, setComment] = useState("");
+  const [comment, setComment] = useState(null);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -17,14 +17,13 @@ function Comments() {
       type: "SEND_COMMENT",
       payload: comment,
     });
+    console.log(comment);
     history.push("/review");
   };
 
   return (
     <div>
-      <h1>
-        Any comments you want to leave?
-      </h1>
+      <h1>Any comments you want to leave?</h1>
       <p>
         <input
           type="text"

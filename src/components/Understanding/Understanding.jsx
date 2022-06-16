@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 
 function Understanding() {
   const [understanding, setUnderstanding] =
-    useState(0);
+    useState(null);
   const dispatch = useDispatch();
   const history = useHistory();
 

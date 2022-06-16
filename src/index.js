@@ -9,34 +9,34 @@ import {
 } from "redux";
 import { Provider } from "react-redux";
 
-const commentReducer = (state = 0, action) => {
+const commentsReducer = (state = null, action) => {
   if (action.type === "SEND_COMMENT") {
-    state += action.payload;
+    state = action.payload;
   }
   return state;
 };
-const supportReducer = (state = 0, action) => {
+const supportReducer = (state = null, action) => {
   if (action.type === "SEND_SUPPORT") {
-    state += action.payload;
+    state = action.payload;
   }
   return state;
 };
-const feelingReducer = (state = 0, action) => {
+const feelingReducer = (state = null, action) => {
   if (action.type === "SEND_FEELING") {
-    state += action.payload;
+    state = action.payload;
   }
   return state;
 };
-const understandingReducer = (state = 0, action) => {
+const understandingReducer = (state = null, action) => {
   if (action.type === "SEND_UNDERSTANDING") {
-    state += action.payload;
+    state = action.payload;
   }
   return state;
 };
 
 const store = createStore(
   combineReducers({
-    commentReducer,
+    commentsReducer,
     feelingReducer,
     supportReducer,
     understandingReducer,
